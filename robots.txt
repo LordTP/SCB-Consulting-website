@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scbconsulting.co.uk/sitemap.xml
