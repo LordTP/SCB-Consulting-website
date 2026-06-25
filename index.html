@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCB Consulting — Strategic Brand &amp; Retail Consultancy</title>
+<meta name="description" content="SCB Consulting — strategic brand & retail consultancy. Retail in-store activations, brand collaborations and experiential marketing / pop-ups for global entertainment, lifestyle and fashion brands.">
+<meta property="og:title" content="SCB Consulting">
+<meta property="og:description" content="Building iconic brands, creating cultural moments, driving commercial growth.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/oasis-5.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230c0c0c'/><text x='50' y='70' font-family='Arial,sans-serif' font-size='54' font-weight='bold' fill='white' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--pad:6vw;--ink:#0c0c0c;--mute:#8a8a8a;--line:#e8e8e8}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:#fff;color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  .syne{font-family:'Syne',sans-serif}
+  .tag{font-size:10px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:var(--mute)}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:24px var(--pad);mix-blend-mode:difference}
+  nav, nav a{color:#fff}
+  nav .mk{font-family:'Syne';font-weight:800;font-size:18px;letter-spacing:.02em}
+  nav .lnk{display:flex;gap:26px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  @media(max-width:720px){nav .lnk{gap:16px}}
+
+  /* fixed vertical edge label */
+  .edge{position:fixed;left:16px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--mute);z-index:40}
+  @media(max-width:1000px){.edge{display:none}}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad);position:relative}
+  .hero .kick{margin-bottom:40px;font-size:13px}
+  .hero h1{font-family:'Syne';font-weight:700;font-size:clamp(34px,5.6vw,82px);line-height:1.06;letter-spacing:-.02em;max-width:30ch}
+  .hero h1 .lite{font-weight:500;color:var(--mute)}
+  .hero .hrule{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;height:1px;background:var(--line)}
+  .hero .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:38px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-end;border-top:1px solid var(--line);padding-top:18px}
+  .hero .foot .col{font-size:13px;color:#444}
+  .hero .foot .col b{display:block;font-family:'Syne';font-weight:600;font-size:15px;color:var(--ink)}
+
+  /* SECTION LEAD */
+  .lead{display:flex;align-items:baseline;gap:18px;padding:20vh var(--pad) 0}
+  .lead h2{font-family:'Syne';font-weight:700;font-size:clamp(28px,4.4vw,58px);letter-spacing:-.02em}
+  .lead .ct{margin-left:auto}
+
+  /* COLLAB CHAPTERS */
+  .chapter{padding:36vh 0 0}
+  .chead{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;padding:0 var(--pad);margin-bottom:20px}
+  .chead .idx{font-family:'Syne';font-weight:800;font-size:clamp(56px,12vw,176px);line-height:.68;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #ddd}
+  .chead h2{font-family:'Syne';font-weight:700;font-size:clamp(28px,4.6vw,60px);letter-spacing:-.02em;margin-bottom:4px}
+  .chead .tag{margin-left:auto;align-self:flex-end}
+  .chead .blurb{flex-basis:100%;font-size:14px;color:#666;max-width:48ch}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:8px;grid-auto-flow:row dense;gap:20px;padding:0 var(--pad)}
+  @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr);gap:14px}}
+  @media(max-width:560px){.gallery{gap:11px}}
+  .gallery img{width:100%;height:auto;display:block;background:#efefef;opacity:0;transform:translateY(16px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1)}
+  .gallery img.on{opacity:1;transform:none}
+  .gallery .wide{grid-column:span 2}
+  /* constrained 2-up block (used for Joy Division Collection) — leaves whitespace on the right */
+  .gallery.block{grid-template-columns:repeat(2,1fr);max-width:64%}
+  @media(max-width:900px){.gallery.block{max-width:none}}
+  /* a touch taller crop for a specific portrait tile */
+  .gallery img.tall{aspect-ratio:19/25;object-fit:cover}
+
+  /* ACTS (3 top-level groups) + collaborations within each */
+  .act{padding:34vh 0 0}
+  .act-head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;padding:0 var(--pad);margin-bottom:1vh}
+  .act-head .idx{font-family:'Syne';font-weight:800;font-size:clamp(56px,12vw,176px);line-height:.68;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px #ddd}
+  .act-head h2{font-family:'Syne';font-weight:700;font-size:clamp(30px,5vw,68px);letter-spacing:-.02em}
+  .collab{padding-top:14vh}
+  .act > .collab:first-of-type{padding-top:6vh}
+  .collab-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;padding:0 var(--pad);margin-bottom:18px}
+  .collab-head h3{font-family:'Syne';font-weight:600;font-size:clamp(19px,2.6vw,32px);letter-spacing:-.01em;line-height:1.12}
+  .collab-head .tag{align-self:center}
+  .pending{margin:0 var(--pad);aspect-ratio:16/5;background:#f4f4f4;display:flex;align-items:center;justify-content:center;color:#b6b6b6;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+
+  /* BRAND INDEX (text only) */
+  .index{padding:36vh var(--pad) 18vh}
+  .index .row{font-family:'Syne';font-weight:600;font-size:clamp(26px,5vw,68px);line-height:1.18;letter-spacing:-.01em;color:var(--ink)}
+  .index .row span{color:var(--line);transition:color .2s}
+  .index .row b{font-weight:600}
+  .index:hover .row{color:var(--line)}
+  .index .row b{color:var(--ink)}
+
+  /* ABOUT — three big statements (replacing the heading), with supporting copy below */
+  .manifesto{padding:20vh var(--pad) 4vh}
+  .manifesto > p{font-family:'Syne';font-weight:700;font-size:clamp(32px,6.6vw,98px);line-height:1.02;letter-spacing:-.02em}
+  .about-body{margin-top:7vh;max-width:92ch}
+  .about-body .first{font-family:'Syne';font-weight:600;font-size:clamp(18px,2vw,26px);line-height:1.3;letter-spacing:-.01em;margin-bottom:28px}
+  .about-body .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .about-body .cols p{font-size:15px;color:#444}
+  @media(max-width:700px){.about-body .cols{grid-template-columns:1fr;gap:18px}}
+
+  /* CONTACT */
+  .contact{min-height:94vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16vh var(--pad) 0;position:relative}
+  .contact h2{font-family:'Syne';font-weight:700;font-size:clamp(38px,8vw,120px);line-height:.98;letter-spacing:-.03em}
+  .contact a.mail{font-family:'Syne';font-weight:600;font-size:clamp(20px,3vw,40px);margin-top:24px;display:inline-block;width:fit-content;border-bottom:1px solid var(--ink);padding-bottom:6px}
+  .contact a.tel{margin-top:16px;font-size:clamp(15px,1.7vw,22px);color:#555}
+  .contact .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:26px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;text-align:left}
+
+  /* MOBILE — keep it edgy, fix flow on small screens (desktop untouched) */
+  @media(max-width:720px){
+    nav{padding:18px var(--pad)}
+    nav .lnk{gap:14px;font-size:10px;letter-spacing:.12em}
+    .hero{min-height:auto;padding-top:120px;padding-bottom:46px}
+    .hero h1{font-size:clamp(23px,6.1vw,42px);line-height:1.12;max-width:none;overflow-wrap:break-word}
+    .hero .kick{font-size:9px;letter-spacing:.2em;margin-bottom:30px}
+    .hero .hrule{position:static;margin-top:38px}
+    .hero .foot{position:static;margin-top:40px;gap:22px 18px}
+    .hero .foot .col{flex:1 1 42%}
+    .act{padding-top:18vh}
+    .collab{padding-top:10vh}
+    .act-head{gap:10px 14px;margin-bottom:6px}
+    .act-head .idx{font-size:46px;-webkit-text-stroke-width:1px}
+    .collab-head{gap:6px 12px;margin-bottom:14px}
+    .contact{min-height:64vh}
+  }
+
+  ::selection{background:var(--ink);color:#fff}
+</style>
+</head>
+<body id="top">
+  <span class="edge">SCB Consulting — Portfolio</span>
+
+  <nav>
+    <a class="mk" href="#top">SCB Consulting</a>
+    <div class="lnk"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="kick tag">SCB Consulting — Strategic Brand &amp; Retail Consultancy</div>
+    <h1 class="syne">Building iconic retail moments for entertainment, lifestyle &amp; fashion brands <span class="lite">— through retail in-store activations, brand collaborations and experiential marketing / pop-ups.</span></h1>
+    <div class="hrule"></div>
+  </header>
+
+  <!-- ACT 01 — RETAIL IN-STORE -->
+  <section class="act" id="work">
+    <header class="act-head"><span class="idx">01</span><h2 class="syne">Retail · In-Store Activations</h2></header>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Joy Division — 40th Anniversary of Unknown Pleasures</h3><span class="tag">Goodhood</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/joy-division-5.jpg" alt="" loading="lazy">
+        <img src="images/joy-division-2.jpg" alt="" loading="lazy">
+        <img src="images/joy-division-3.jpg" alt="" loading="lazy">
+        <img src="images/joy-division-4.jpg" alt="" loading="lazy">
+        <img src="images/joy-division-1.png" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Grateful Dead</h3><span class="tag">Selfridges</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/grateful-dead-1.jpg" alt="" loading="lazy">
+        <img src="images/grateful-dead-2.jpg" alt="" loading="lazy">
+        <img src="images/grateful-dead-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Harry Potter World</h3><span class="tag">Primark</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/harry-potter-1.jpg" alt="" loading="lazy">
+        <img src="images/harry-potter-2.jpg" alt="" loading="lazy">
+        <img src="images/harry-potter-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+  </section>
+
+  <!-- ACT 02 — BRAND COLLABORATIONS -->
+  <section class="act" id="collabs">
+    <header class="act-head"><span class="idx">02</span><h2 class="syne">Brand Collaborations</h2></header>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Palm Angels</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img src="images/palm-angels-1.jpg" alt="" loading="lazy">
+        <img src="images/palm-angels-2.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Joy Division</h3><span class="tag">Collaborations</span></header>
+      <div class="gallery block">
+        <img src="images/joy-division-selfridges-1.jpg" alt="" loading="lazy">
+        <img src="images/joy-division-selfridges-2.jpg" alt="" loading="lazy">
+        <img src="images/jd-1.jpg" alt="" loading="lazy">
+        <img src="images/jd-2.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Talking Heads × Pleasures</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img src="images/talking-heads-1.jpg" alt="" loading="lazy">
+        <img src="images/talking-heads-2.jpg" alt="" loading="lazy">
+        <img src="images/talking-heads-3.jpg" alt="" loading="lazy">
+        <img src="images/talking-heads-4.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Grateful Dead × Alice &amp; Olivia</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img src="images/grateful-dead-ao-1.jpg" alt="" loading="lazy">
+        <img src="images/grateful-dead-ao-2.jpg" alt="" loading="lazy">
+        <img src="images/grateful-dead-ao-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Liam Gallagher × Nigel Cabourn</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img src="images/liam-cabourn-1.jpg" alt="" loading="lazy">
+        <img src="images/liam-cabourn-2.jpg" alt="" loading="lazy">
+        <img src="images/liam-cabourn-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Pleasures × Joy Division × Reebok Club C</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/reebok-1.jpg" alt="" loading="lazy">
+        <img class="tall" src="images/reebok-2.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Oasis Live '25 × Chilly's</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/oasis-chillys-1.jpg" alt="" loading="lazy">
+        <img src="images/oasis-chillys-2.jpg" alt="" loading="lazy">
+        <img src="images/oasis-chillys-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">The Rolling Stones × Pringle of Scotland</h3><span class="tag">Collaboration</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/rolling-stones-1.jpg" alt="" loading="lazy">
+        <img src="images/rolling-stones-2.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Marilyn Manson × Dilara Findikoglu</h3><span class="tag">2017 Fashion Show</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/marilyn-manson-1.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ACT 03 — BRAND POP-UPS -->
+  <section class="act" id="popups">
+    <header class="act-head"><span class="idx">03</span><h2 class="syne">Experiential Marketing / Pop-Ups</h2></header>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Oasis Live '25 — Fan Stores</h3><span class="tag">2025</span></header>
+      <div class="gallery">
+        <img src="images/oasis-1.jpg" alt="" loading="lazy">
+        <img src="images/oasis-2.jpg" alt="" loading="lazy">
+        <img src="images/oasis-3.jpg" alt="" loading="lazy">
+        <img class="wide" src="images/oasis-4.jpg" alt="" loading="lazy">
+        <img src="images/oasis-5.jpg" alt="" loading="lazy">
+        <img src="images/oasis-6.jpg" alt="" loading="lazy">
+        <img src="images/oasis-7.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+    <article class="collab">
+      <header class="collab-head"><h3 class="syne">Kanye West</h3><span class="tag">Pop-Up Shop</span></header>
+      <div class="gallery">
+        <img class="wide" src="images/kanye-1.jpg" alt="" loading="lazy">
+        <img src="images/kanye-2.jpg" alt="" loading="lazy">
+        <img src="images/kanye-3.jpg" alt="" loading="lazy">
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="manifesto" id="about">
+    <p class="syne">Building Iconic Brands</p>
+    <p class="syne">Creating Cultural Moments</p>
+    <p class="syne">Driving Commercial Growth</p>
+    <div class="about-body">
+      <p class="first">A director with 13+ years delivering retail stories for global entertainment, lifestyle and fashion brands.</p>
+      <div class="cols">
+        <p>Global collaborations with luxury, streetwear and accessory brands including Represent, Palm Angels, Barbour, C.P. Company, Lulu Guinness, Bang &amp; Olufsen and YETI, and led standout activations with Selfridges, Harvey Nichols and Goodhood.</p>
+        <p>As a fan of brands, fashion and culture, I've delivered pop-up shops for Ed Sheeran, Ariana Grande, The 1975 and Kanye West, shaped the in-store world of Harry Potter across Primark, and worked on the retail fan stores for Oasis Live '25.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <span class="tag" style="margin-bottom:22px">Get in touch</span>
+    <h2 class="syne">Let's create<br>something iconic.</h2>
+    <a class="mail" href="mailto:sophie@scbconsulting.com">sophie@scbconsulting.com</a>
+    <a class="tel" href="tel:+447717535451">+44 (0)7717 535 451</a>
+    <div class="foot tag">
+      <span>SCB Consulting</span>
+      <span>Partnerships · Retail Activations · Pop-Ups</span>
+      <span>© 2026</span>
+    </div>
+  </section>
+
+  <script>
+    /* Masonry: size each tile's row-span to its natural height, then fade in.
+       Reads the live grid gap/row so it stays correct across breakpoints. */
+    (function () {
+      function place(im) {
+        var g = im.closest('.gallery');
+        if (!g) return;
+        var cs = getComputedStyle(g);
+        var row = parseFloat(cs.gridAutoRows) || 8;
+        var gap = parseFloat(cs.rowGap) || 0;
+        var h = im.getBoundingClientRect().height;
+        if (!h) return;
+        im.style.gridRowEnd = 'span ' + Math.max(1, Math.round((h + gap) / (row + gap)));
+        im.classList.add('on');
+      }
+      var imgs = [].slice.call(document.querySelectorAll('.gallery img'));
+      imgs.forEach(function (im) {
+        if (im.complete && im.naturalWidth) { place(im); }
+        else { im.addEventListener('load', function () { place(im); }); }
+      });
+      var t;
+      window.addEventListener('resize', function () {
+        clearTimeout(t);
+        t = setTimeout(function () { imgs.forEach(function (im) { if (im.complete) place(im); }); }, 150);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# OS / editor cruft
+.DS_Store
+.vscode/
+*.code-workspace
+
+# Local design archive (old options + unused images) — not part of the live site
+archive/
