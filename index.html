@@ -41,6 +41,7 @@
   .hero h1{font-family:'Syne';font-weight:700;font-size:clamp(34px,5.6vw,82px);line-height:1.06;letter-spacing:-.02em;max-width:30ch}
   .hero h1 .lite{font-weight:500;color:var(--mute)}
   .hero .hrule{position:absolute;left:var(--pad);right:var(--pad);bottom:40px;height:1px;background:var(--line)}
+  .hero-bg,.hero-m{display:none}  /* mobile-only full-bleed hero (see mobile media query) */
   .hero .foot{position:absolute;left:var(--pad);right:var(--pad);bottom:38px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:flex-end;border-top:1px solid var(--line);padding-top:18px}
   .hero .foot .col{font-size:13px;color:#444}
   .hero .foot .col b{display:block;font-family:'Syne';font-weight:600;font-size:15px;color:var(--ink)}
@@ -109,10 +110,14 @@
   @media(max-width:720px){
     nav{padding:18px var(--pad)}
     nav .lnk{gap:14px;font-size:10px;letter-spacing:.12em}
-    .hero{min-height:100svh;padding-top:84px;padding-bottom:56px}
-    .hero h1{font-size:clamp(30px,8.4vw,52px);line-height:1.22;max-width:none;overflow-wrap:break-word}
-    .hero .kick{font-size:10px;letter-spacing:.24em;margin-bottom:40px}
-    .hero .hrule{display:none}
+    .hero{min-height:100svh;padding:0;justify-content:flex-end;color:#fff;overflow:hidden}
+    .hero-bg{display:block;position:absolute;inset:0;z-index:0;background:url(images/grateful-dead-ao-2.jpg) center/cover}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.05) 38%,rgba(0,0,0,.82))}
+    .hero .kick{position:absolute;top:88px;left:var(--pad);right:var(--pad);z-index:2;margin:0;color:rgba(255,255,255,.85);font-size:10px;letter-spacing:.2em}
+    .hero h1,.hero .hrule{display:none}
+    .hero-m{display:block;position:relative;z-index:2;padding:0 var(--pad) 46px}
+    .hero-m h2{font-family:'Syne';font-weight:700;font-size:clamp(34px,10vw,56px);line-height:1.05;letter-spacing:-.02em}
+    .hero-m p{margin-top:14px;font-size:13px;color:rgba(255,255,255,.85);letter-spacing:.02em}
     .hero .foot{position:static;margin-top:40px;gap:22px 18px}
     .hero .foot .col{flex:1 1 42%}
     .act{padding-top:18vh}
@@ -136,9 +141,14 @@
 
   <!-- HERO -->
   <header class="hero">
+    <div class="hero-bg"></div>
     <div class="kick tag">SCB Consulting — Strategic Brand &amp; Retail Consultancy</div>
     <h1 class="syne">Building iconic retail moments for entertainment, lifestyle &amp; fashion brands <span class="lite">— through retail in-store activations, brand collaborations and experiential marketing / pop-ups.</span></h1>
     <div class="hrule"></div>
+    <div class="hero-m">
+      <h2 class="syne">Building iconic retail moments.</h2>
+      <p>Brand collaborations · retail activations · experiential pop-ups</p>
+    </div>
   </header>
 
   <!-- ACT 01 — RETAIL IN-STORE -->
